@@ -1,9 +1,8 @@
 const mongoose = require('mongoose');
-const mongoUri = "mongodb://localhost:27017/inotebook";
 
 async function connectDB() {
   try {
-    await mongoose.connect(mongoUri);
+    await mongoose.connect(`${process.env.MONGODB_URI}/inotebook`)
     console.log('Connected to MongoDB');
   } catch (error) {
     console.error('Connection error', error);
